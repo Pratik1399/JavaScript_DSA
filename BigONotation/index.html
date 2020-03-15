@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Big O Notation</title>
+		<script src="add1.js"></script>
+		<script src="add1Timing.js"></script>
+		<script src="add2.js"></script>
+		<script src="add2Timing.js"></script>
+		<script src="logUpTo.js"></script>
+		<script src="countUpAndDown.js"></script>
+		<script src="printAllPairs.js"></script>
+		<script src="logAtLeast.js"></script>
+	</head>
+	<body>
+		<h1>Big O Notation</h1>
+		<h2>Warning</h2>
+		<p>This section contains some math</p>
+		<p>Don't worry,we'll survive</p>
+		<h2>Objectives</h2>
+		<p>Motivate the need for something like Big O Notation</p>
+		<p>Describe what Big O Notation is</p>
+		<p>Simplify Big O Expressions</p>
+		<p>Define "time complexity" and "space complexity"</p>
+		<p>
+			Evaluate the time complexity and space complexity of different algorithms
+			using Big O Notation
+		</p>
+		<p>Describe what a logarithm is</p>
+		<h2>What's the idea here?</h2>
+		<p>Imagine we have multiple implementation of the same function.</p>
+		<p>How can we determine which one is the "best?"</p>
+		<h2>
+			"Write a function that accepts a string input and returns a reversed
+			copy?"
+		</h2>
+		<p>Great!</p>
+		<p>Pretty Good</p>
+		<p>Only Ok</p>
+		<p>Ehhh</p>
+		<p>Awful</p>
+		<h2>Who Cares?</h2>
+		<p>
+			It's important to have a precise vocabulary to talk about how our code
+			performs
+		</p>
+		<p>Useful for discussing trade-offs between different approaches</p>
+		<p>
+			When your code shows down or crashes,identifying parts of the code that
+			are inefficient can help us find pain points in our applications
+		</p>
+		<p>Less important:it comes up in interviews!</p>
+		<h2>An Example</h2>
+		<p>
+			Suppose we want to write a function that calculates the sum of all numbers
+			from 1 up to (and including) some number n
+		</p>
+		<p>Which one is better?</p>
+		<h2>What does better mean?</h2>
+		<p>Faster?</p>
+		<p>Less memory-intensive?</p>
+		<p>More readable?</p>
+		<h2>Why not use timers?</h2>
+		<h2>The Problem with Time</h2>
+		<p>Different machines will record different times</p>
+		<p>The same machine will record different times!</p>
+		<p>For fast algorithms,speed measurements may not be precise enough?</p>
+		<h2>If not time,then what?</h2>
+		<p>Rather than counting seconds, which are so variable...</p>
+		<p>
+			Let's count the number of simple operations the computer has to perform!
+		</p>
+		<h2>Counting Operations</h2>
+		<p>3 simple operations,regardless of the size of n</p>
+		<h2>Counting is hard!</h2>
+		<p>
+			Depending on what we count,the number of operations can be as low as 2n or
+			as high as 5n+2
+		</p>
+		<p>
+			But regardless of the exact number,the number of operations grows roughly
+			proportionally with n.
+		</p>
+		<p>If n doubles,the number of operations will also roughly double</p>
+		<h2>Introducing...Big O</h2>
+		<p>Big O Notation is a way to formalize fuzzy counting</p>
+		<p>
+			It allows us to talk formally about how the runtime of an algorithm grows
+			as the inputs grow
+		</p>
+		<p>We won't care about the details,only the trends</p>
+		<h2>Big O Definition</h2>
+		<p>
+			We say that an algorithm is O(f(n)) if the number of simple operations the
+			computer has to do is eventually less than a constant times f(n),as n
+			increases
+		</p>
+		<p>
+			f(n) could be linear (f(n) = n)
+		</p>
+		<p>f(n) could be quadratic (f(n) = n square )</p>
+		<p>f(n) could be constant (f(n) = 1)</p>
+		<p>f(n) could be something entirely different!</p>
+		<h2>Simplifying Big O Expressions</h2>
+		<p>
+			When determining the time complexity of an algorithm, there are some
+			helpful rule of thumbs for big O expressions.
+		</p>
+		<p>
+			These rules of thumb are consequences of the definition of big O notation.
+		</p>
+		<h2>Constants Don't Matter</h2>
+		<p>O2(n)-Incorrect</p>
+		<p>O(n)-Correct</p>
+		<p>O(500)-Incorrect</p>
+		<p>O(1)-Incorrect</p>
+		<p>O(13n square)-Incorrect</p>
+		<p>O(n square)-Correct</p>
+		<h2>
+			Smaller Terms Don't Matter
+		</h2>
+		<p>O(n + 10)-Incorrect</p>
+		<p>O(n)-Correct</p>
+		<p>O(1000n + 50)-Incorrect</p>
+		<p>O(n)-Correct</p>
+		<p>O(n square + 5n + 8 )-Incorrect</p>
+		<p>O(n)-Correct</p>
+		<h2>Big O Shorthands</h2>
+		<p>Analyzing complexity with big O can get complicated</p>
+		<p>There are several rules of thumb that can help</p>
+		<p>These rules won't ALWAYS work, but are a helpful starting point</p>
+		<p>
+			Arithmetic operations are constant
+		</p>
+		<p>Variable assignment is constant</p>
+		<p>
+			Accessing elements in an array (by index) or object (by key) is constant
+		</p>
+		<p>
+			In a loop, the the complexity is the length of the loop times the
+			complexity of whatever happens inside of the loop
+		</p>
+		<h2>
+			Space Complexity
+		</h2>
+		<p>
+			So far, we've been focusing on time complexity: how can we analyze the
+			runtime of an algorithm as the size of the inputs increases?
+		</p>
+		<p>
+			We can also use big O notation to analyze space complexity: how much
+			additional memory do we need to allocate in order to run the code in our
+			algorithm?
+		</p>
+		<h2>
+			What about the inputs?
+		</h2>
+		<p>
+			Sometimes you'll hear the term auxiliary space complexity to refer to
+			space required by the algorithm, not including space taken up by the
+			inputs.
+		</p>
+		<p>
+			Unless otherwise noted, when we talk about space complexity, technically
+			we'll be talking about auxiliary space complexity.
+		</p>
+		<h2>
+			Space Complexity in JS
+		</h2>
+		<p>Rules of Thumb</p>
+		<p>
+			Most primitives (booleans, numbers, undefined, null) are constant space
+		</p>
+		<p>Strings require O(n) space (where n is the string length)</p>
+		<p>
+			Reference types are generally O( n), where n is the length (for arrays) or
+			the number of keys (for objects)
+		</p>
+		<h2>
+			Logarithms
+		</h2>
+		<p>
+			We've encountered some of the most common complexities: O(1), O(n), O(n
+			square)
+		</p>
+		<p>
+			Sometimes big O expressions involve more complex mathematical expressions
+		</p>
+		<p>One that appears more often than you might like is the logarithm!</p>
+	</body>
+</html>
